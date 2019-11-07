@@ -1,0 +1,75 @@
+.timeline {
+  margin-top: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.steps-item {
+  list-style: none;
+  margin-left: 40px;
+  margin-top: 10px;
+  border-left: 1px dashed black !important;
+  width: 100%;
+  padding: 18px 0px 18px 50px;
+}
+.steps-item::before,
+.steps-item::after {
+  position: absolute;
+  left: 45px;
+  background-repeat: no-repeat;
+  background-size: 17px;
+  background-color: #cad6e0;
+  border-radius: 100%;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  content: "";
+}
+.steps-item::before {
+  margin-top: -60px;
+  margin-left: -20px;
+  background-image: url("../../../assets/destination.svg");
+}
+.steps-item::after {
+  margin-top: 30px;
+  margin-left: -20px;
+  background-image: url("../../../assets/warehouse.svg");
+}
+.steps-item li {
+  border: 1px solid #d9e3ea;
+  width: 300px;
+  border-radius: 3px;
+  margin: 15px 5px 15px 5px;
+  padding: 7px;
+  font-size: 12px;
+  text-align: left;
+  position: relative;
+  color: #848484;
+}
+.steps-item li::before {
+  position: absolute;
+  left: -61px;
+  top: 11px;
+  background-color: #6ecbf0;
+  border-radius: 100%;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  content: "";
+  box-shadow: 0px 1px 7px #74d9f7;
+}
+.steps-item li::after {
+  position: absolute;
+  left: -50px;
+  top: 15px;
+  display: inline-block;
+  width: 11%;
+  border: 1px solid #6ecbf0;
+  content: "";
+}
+.steps-item li.final-step {
+  background-color: #d9e3ea;
+  color: #76d218;
+  font-weight: bold;
+}

@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header/Header";
+import TabList from "./components/StatusTab/index";
+import Dashboard from "./components/Dashboard/index";
+import * as actions from "./utils/actions";
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.fetchData();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {!props.data.loading ? (
+        <>
+          <TabList tab={props.data} />
+          <Dashboard
+            data={props.data.data.filter(
+              item => item.status === props.data.currentTab
+            )}
+          />
+        </>
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = (state, props) => {
+  console.log("STATE", state);
+  return {
+    data: state
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    fetchData: () => {
+      dispatch(actions.fetchData());
+    }
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

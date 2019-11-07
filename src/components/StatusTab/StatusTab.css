@@ -1,0 +1,14 @@
+.tab-box {
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+  background-color: #c2e0f2;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0px 10px;
+}
+.tab-box.active {
+  background-color: #0061c2;
+}

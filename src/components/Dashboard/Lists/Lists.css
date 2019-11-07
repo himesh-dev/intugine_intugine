@@ -1,0 +1,34 @@
+.dashboard {
+  height: 350px !important;
+  width: 750px;
+  overflow-y: scroll;
+}
+.table {
+  font-size: 12px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table thead tr {
+  color: #b6bec3;
+  display: flex;
+  font-size: 10px;
+}
+.table thead tr th {
+  flex: 1;
+}
+.table tbody tr th,
+td {
+  flex: 1;
+}
+.table tbody tr {
+  display: flex;
+  width: 100%;
+  color: #444444;
+}
+
+.table-row {
+  border: 1px solid #777;
+  /* width: 700px; */
+  padding: 10px 0px;
+  margin: 10px 10px;
+}
